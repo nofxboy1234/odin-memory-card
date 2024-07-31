@@ -8,23 +8,32 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
-    console.log('Fetch');
+    async function fetchData() {
+      const response = await fetch(
+        'https://pokeapi.co/api/v2/pokemon?limit=12'
+      );
+      const json = await response.json();
+      const pokemonUrls = json.results.map((pokemon) => pokemon.url);
+
+      const monsterPromises = pokemonUrls.map((url) => fetch(url));
+      const monsterResponses = await Promise.all(monsterPromises);
+      const monsterJsons = monsterResponses.map((monsterResponse) =>
+        monsterResponse.json()
+      );
+      const monsters = await Promise.all(monsterJsons);
+
+      // const response = await fetch(pokemon.url);
+      // const json = await response.json();
+      // return json;
+      return monsters;
+    }
+
     let ignore = false;
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
-      .then((response) => {
-        console.log('Got response');
-        return response.json();
-      })
-      .then((json) => {
-        if (!ignore) {
-          console.log('Got json - use fetched data');
-          setPokemon(json.results);
-          // setName(json.name);
-          // setUrl(
-          //   json.sprites.versions['generation-i']['red-blue'].front_default
-          // );
-        }
-      });
+    fetchData().then((monsters) => {
+      if (!ignore) {
+        setPokemon(monsters);
+      }
+    });
 
     return () => {
       ignore = true;
@@ -35,11 +44,22 @@ function App() {
 
   return (
     <>
-      <div>
-        {pokemon.map((monster) => {
-          return <div key={monster.name}>{monster.name}</div>;
-        })}
-      </div>
+      {pokemon.map((monster) => {
+        return (
+          <div key={monster.name}>
+            <div>
+              <img
+                src={
+                  monster.sprites.versions['generation-i']['red-blue']
+                    .front_default
+                }
+                alt=""
+              />
+            </div>
+            <div>{monster.name}</div>
+          </div>
+        );
+      })}
     </>
   );
 }
