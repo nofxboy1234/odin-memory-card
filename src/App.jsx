@@ -4,25 +4,24 @@ import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
-  let name;
-  let url;
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
 
   fetch('https://pokeapi.co/api/v2/pokemon/1')
     .then((response) => {
       return response.json();
     })
     .then((json) => {
-      name = json.name;
-      url = json.sprites.versions['generation-i']['red-blue'].front_default;
-    })
-    .then(() => {
-      console.log(name);
-      return (
-        <>
-          <div>{name}</div>
-        </>
-      );
+      setName(json.name);
+      setUrl(json.sprites.versions['generation-i']['red-blue'].front_default);
     });
+
+  return (
+    <>
+      <div>{name}</div>
+      <div>{url}</div>
+    </>
+  );
 }
 
 export default App;
