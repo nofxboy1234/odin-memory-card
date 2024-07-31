@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import './styles/card.css';
 
 function App() {
   const [name, setName] = useState('');
