@@ -3,13 +3,14 @@ import './App.css';
 import './styles/card.css';
 
 function App() {
-  const [name, setName] = useState('');
-  const [url, setUrl] = useState('');
+  // const [name, setName] = useState('');
+  // const [url, setUrl] = useState('');
+  const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
     console.log('Fetch');
     let ignore = false;
-    fetch('https://pokeapi.co/api/v2/pokemon/1')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
       .then((response) => {
         console.log('Got response');
         return response.json();
@@ -17,10 +18,11 @@ function App() {
       .then((json) => {
         if (!ignore) {
           console.log('Got json - use fetched data');
-          setName(json.name);
-          setUrl(
-            json.sprites.versions['generation-i']['red-blue'].front_default
-          );
+          setPokemon(json.results);
+          // setName(json.name);
+          // setUrl(
+          //   json.sprites.versions['generation-i']['red-blue'].front_default
+          // );
         }
       });
 
@@ -34,9 +36,10 @@ function App() {
   return (
     <>
       <div>
-        <img src={url} alt="" />
+        {pokemon.map((monster) => {
+          return <div key={monster.name}>{monster.name}</div>;
+        })}
       </div>
-      <div>{name}</div>
     </>
   );
 }
