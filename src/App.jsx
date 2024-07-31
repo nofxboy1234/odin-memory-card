@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './styles/card.css';
+import CardDisplay from './components/CardDisplay';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <>
+      <CardDisplay />
       <div className="pokemon-container">
         {pokemon.map((monster) => {
           return (
