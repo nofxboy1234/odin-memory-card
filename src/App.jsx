@@ -32,8 +32,10 @@ function App() {
 
   return (
     <>
+      <div>
+        <img src={url} alt="" />
+      </div>
       <div>{name}</div>
-      <div>{url}</div>
     </>
   );
 }
