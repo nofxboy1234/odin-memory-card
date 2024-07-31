@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import './styles/card.css';
 
 function App() {
@@ -39,22 +38,24 @@ function App() {
 
   return (
     <>
-      {pokemon.map((monster) => {
-        return (
-          <div key={monster.id}>
-            <div>
-              <img
-                src={
-                  monster.sprites.versions['generation-i']['red-blue']
-                    .front_default
-                }
-                alt={monster.name}
-              />
+      <div className="pokemon-container">
+        {pokemon.map((monster) => {
+          return (
+            <div key={monster.id} className="card">
+              <div>
+                <img
+                  src={
+                    monster.sprites.versions['generation-i']['red-blue']
+                      .front_default
+                  }
+                  alt={monster.name}
+                />
+              </div>
+              <div>{monster.name}</div>
             </div>
-            <div>{monster.name}</div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }

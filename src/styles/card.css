@@ -2,3 +2,13 @@ img {
   width: 160px;
   image-rendering: pixelated;
 }
+
+.pokemon-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid black;
+}
