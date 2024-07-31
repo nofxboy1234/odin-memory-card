@@ -3,8 +3,6 @@ import './App.css';
 import './styles/card.css';
 
 function App() {
-  // const [name, setName] = useState('');
-  // const [url, setUrl] = useState('');
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
@@ -22,9 +20,6 @@ function App() {
       );
       const monsters = await Promise.all(monsterJsons);
 
-      // const response = await fetch(pokemon.url);
-      // const json = await response.json();
-      // return json;
       return monsters;
     }
 
@@ -46,14 +41,14 @@ function App() {
     <>
       {pokemon.map((monster) => {
         return (
-          <div key={monster.name}>
+          <div key={monster.id}>
             <div>
               <img
                 src={
                   monster.sprites.versions['generation-i']['red-blue']
                     .front_default
                 }
-                alt=""
+                alt={monster.name}
               />
             </div>
             <div>{monster.name}</div>
