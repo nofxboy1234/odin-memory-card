@@ -1,0 +1,9 @@
+- keys
+- props
+
+- useState
+- state updater functions
+  - setPerson((prevPerson) => ({ ...prevPerson, age: prevPerson.age + 1 }));
+- useEffect
+- useMemo
+- useRef
