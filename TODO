@@ -8,3 +8,22 @@
   - useEffect
   - useMemo
   - useRef
+
+---
+
+- components
+  - App
+  - ScoreBoard
+    - [currentScore, setCurrentScore]
+    - [bestScore, setBestScore]
+  - CardDisplay
+    - [cards, setCards]
+    - getImagesFromApi()
+    - shuffleCards()
+    - Card
+      - onClick=shuffleCards
+      - CardPicture
+      - CardTitle
+    - Card
+      - CardPicture
+      - CardTitle
