@@ -1,11 +1,11 @@
-- keys
+- \*keys
 - props
 
 - hooks
-  - useState
+  - \*useState
   - state updater functions
     - setPerson((prevPerson) => ({ ...prevPerson, age: prevPerson.age + 1 }));
-  - useEffect
+  - \*useEffect
   - useMemo
   - useRef
 
