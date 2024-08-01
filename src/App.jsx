@@ -4,6 +4,28 @@ import CardDisplay from './components/CardDisplay';
 function App() {
   const [pokemon, setPokemon] = useState([]);
 
+  function shuffleCards() {
+    console.log('shuffle cards');
+
+    const array = [...pokemon];
+    let currentIndex = array.length;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+      // Pick a remaining element...
+      let randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    setPokemon(array);
+  }
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
@@ -38,7 +60,11 @@ function App() {
 
   return (
     <>
-      <CardDisplay pokemon={pokemon} setPokemon={setPokemon} />
+      <CardDisplay
+        pokemon={pokemon}
+        setPokemon={setPokemon}
+        shuffleCards={shuffleCards}
+      />
     </>
   );
 }
