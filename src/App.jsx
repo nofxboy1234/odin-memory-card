@@ -60,11 +60,7 @@ function App() {
 
   return (
     <>
-      <CardDisplay
-        pokemon={pokemon}
-        setPokemon={setPokemon}
-        shuffleCards={shuffleCards}
-      />
+      <CardDisplay pokemon={pokemon} shuffleCards={shuffleCards} />
     </>
   );
 }

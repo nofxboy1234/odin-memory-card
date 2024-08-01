@@ -1,6 +1,6 @@
 import Card from './Card';
 
-export default function CardDisplay({ pokemon, setPokemon, shuffleCards }) {
+export default function CardDisplay({ pokemon, shuffleCards }) {
   return (
     <>
       <div className="card-display">
