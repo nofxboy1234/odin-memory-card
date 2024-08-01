@@ -17,7 +17,6 @@ img {
 
 .card:hover {
   filter: contrast(200%);
-  /* filter: sepia(50%); */
   border: 2px solid rgb(0, 0, 0);
 }
 
