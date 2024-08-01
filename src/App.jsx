@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './styles/card.css';
 import CardDisplay from './components/CardDisplay';
 
 function App() {
