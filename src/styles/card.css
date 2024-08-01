@@ -6,9 +6,30 @@ img {
 .pokemon-container {
   display: grid;
   grid-template-columns: 200px 200px 200px;
-  gap: 10px;
+  gap: 20px;
 }
 
 .card {
-  border: 1px solid black;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card:hover {
+  filter: contrast(200%);
+  /* filter: sepia(50%); */
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.card-title,
+.card-picture {
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
