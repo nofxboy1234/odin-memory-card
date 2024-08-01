@@ -12,18 +12,18 @@
 ---
 
 - components
-  - App
+  - \*App
   - ScoreBoard
     - [currentScore, setCurrentScore]
     - [bestScore, setBestScore]
-  - CardDisplay
-    - [cards, setCards]
-    - getImagesFromApi()
-    - shuffleCards()
-    - Card
-      - onClick=shuffleCards
-      - CardPicture
-      - CardTitle
-    - Card
-      - CardPicture
-      - CardTitle
+  - \*CardDisplay
+    - \*[pokemon, setPokemon]
+    - \*getImagesFromApi()
+    - \*shuffleCards()
+    - \*Card
+      - \*onClick=shuffleCards
+      - \*CardPicture
+      - \*CardTitle
+    - \*Card
+      - \*CardPicture
+      - \*CardTitle
