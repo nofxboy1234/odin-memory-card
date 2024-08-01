@@ -7,7 +7,7 @@ export default function CardDisplay({ pokemon }) {
 
   return (
     <>
-      <div className="pokemon-container">
+      <div className="card-display">
         {pokemon.map((monster) => {
           return (
             <Card key={monster.id} monster={monster} onClick={shuffleCards} />
