@@ -38,7 +38,7 @@ function App() {
 
   return (
     <>
-      <CardDisplay pokemon={pokemon} />
+      <CardDisplay pokemon={pokemon} setPokemon={setPokemon} />
     </>
   );
 }
