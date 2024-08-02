@@ -1,11 +1,6 @@
 import Card from './Card';
 
 export default function CardDisplay({ pokemon, setPokemon, shuffleCards }) {
-  function callShuffleCards() {
-    const shuffledPokemon = shuffleCards(pokemon);
-    setPokemon(shuffledPokemon);
-  }
-
   return (
     <>
       <div className="card-display">
@@ -14,7 +9,10 @@ export default function CardDisplay({ pokemon, setPokemon, shuffleCards }) {
             <Card
               key={monster.id}
               monster={monster}
-              onClick={callShuffleCards}
+              onClick={() => {
+                const shuffledPokemon = shuffleCards(pokemon);
+                setPokemon(shuffledPokemon);
+              }}
             />
           );
         })}

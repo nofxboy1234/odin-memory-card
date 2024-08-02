@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import '../styles/card.css';
 
 export default function Card({ monster, onClick }) {
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
     <>
       <div className="card" onClick={onClick}>
