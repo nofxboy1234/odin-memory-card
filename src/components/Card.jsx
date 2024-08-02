@@ -1,23 +1,32 @@
-import { useState } from 'react';
 import '../styles/card.css';
 
-export default function Card({ monster, onClick }) {
-  const [isClicked, setIsClicked] = useState(false);
-
+export default function Card({
+  monster,
+  shuffleCards,
+  resetCards,
+  saveCard,
+  isClicked,
+}) {
   return (
     <>
       <div
         className="card"
         onClick={() => {
           if (isClicked) {
+            console.log('clicked the same card!');
+            // Reset isClicked on all Cards
+            resetCards();
             // Update High score if score > high score
             // Set score to 0
-            // ~fetch new pokemon
-            // shuffle cards
+            // ~fetch new pokemon (changes ids!)
+          } else {
+            const updatedCard = {
+              id: monster.id,
+              isClicked: true,
+            };
+            saveCard(updatedCard);
           }
-
-          setIsClicked(true);
-          onClick();
+          shuffleCards();
         }}
       >
         <div className="card-picture">

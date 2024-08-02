@@ -4,7 +4,7 @@ import CardDisplay from './components/CardDisplay';
 function App() {
   const [pokemon, setPokemon] = useState([]);
 
-  const shuffleCards = useCallback((array) => {
+  const shuffleArray = useCallback((array) => {
     console.log('shuffle cards');
 
     const newArray = [...array];
@@ -48,7 +48,7 @@ function App() {
     let ignore = false;
     fetchData().then((monsters) => {
       if (!ignore) {
-        const shuffledMonsters = shuffleCards(monsters);
+        const shuffledMonsters = shuffleArray(monsters);
         setPokemon(shuffledMonsters);
       }
     });
@@ -56,17 +56,19 @@ function App() {
     return () => {
       ignore = true;
     };
-  }, [shuffleCards]);
+  }, [shuffleArray]);
 
   console.log('Render');
 
   return (
     <>
-      <CardDisplay
-        pokemon={pokemon}
-        setPokemon={setPokemon}
-        shuffleCards={shuffleCards}
-      />
+      {pokemon.length > 0 && (
+        <CardDisplay
+          pokemon={pokemon}
+          setPokemon={setPokemon}
+          shuffleArray={shuffleArray}
+        />
+      )}
     </>
   );
 }
