@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import CardDisplay from './components/CardDisplay';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
 
-  function shuffleCards() {
+  const shuffleCards = useCallback((array) => {
     console.log('shuffle cards');
 
-    const array = [...pokemon];
-    let currentIndex = array.length;
+    const newArray = [...array];
+    let currentIndex = newArray.length;
 
     // While there remain elements to shuffle...
     while (currentIndex != 0) {
@@ -17,14 +17,14 @@ function App() {
       currentIndex--;
 
       // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
+      [newArray[currentIndex], newArray[randomIndex]] = [
+        newArray[randomIndex],
+        newArray[currentIndex],
       ];
     }
 
-    setPokemon(array);
-  }
+    return newArray;
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -44,23 +44,29 @@ function App() {
       return monsters;
     }
 
+    console.log('fetching data');
     let ignore = false;
     fetchData().then((monsters) => {
       if (!ignore) {
-        setPokemon(monsters);
+        const shuffledMonsters = shuffleCards(monsters);
+        setPokemon(shuffledMonsters);
       }
     });
 
     return () => {
       ignore = true;
     };
-  }, []);
+  }, [shuffleCards]);
 
   console.log('Render');
 
   return (
     <>
-      <CardDisplay pokemon={pokemon} shuffleCards={shuffleCards} />
+      <CardDisplay
+        pokemon={pokemon}
+        setPokemon={setPokemon}
+        shuffleCards={shuffleCards}
+      />
     </>
   );
 }
