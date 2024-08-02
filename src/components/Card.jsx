@@ -6,7 +6,13 @@ export default function Card({ monster, onClick }) {
 
   return (
     <>
-      <div className="card" onClick={onClick}>
+      <div
+        className="card"
+        onClick={() => {
+          setIsClicked(true);
+          onClick();
+        }}
+      >
         <div className="card-picture">
           <img
             src={
