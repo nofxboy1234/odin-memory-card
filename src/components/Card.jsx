@@ -9,6 +9,13 @@ export default function Card({ monster, onClick }) {
       <div
         className="card"
         onClick={() => {
+          if (isClicked) {
+            // Update High score if score > high score
+            // Set score to 0
+            // ~fetch new pokemon
+            // shuffle cards
+          }
+
           setIsClicked(true);
           onClick();
         }}
