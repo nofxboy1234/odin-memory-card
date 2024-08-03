@@ -4,6 +4,8 @@ import ScoreBoard from './components/ScoreBoard';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   const shuffleArray = useCallback((array) => {
     console.log('shuffle cards');
@@ -64,12 +66,14 @@ function App() {
   return (
     <>
       <div>
-        <ScoreBoard />
+        <ScoreBoard currentScore={currentScore} bestScore={bestScore} />
         {pokemon.length > 0 && (
           <CardDisplay
             pokemon={pokemon}
             setPokemon={setPokemon}
             shuffleArray={shuffleArray}
+            currentScore={currentScore}
+            setCurrentScore={setCurrentScore}
           />
         )}
       </div>

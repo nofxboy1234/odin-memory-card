@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import Card from './Card';
 
-export default function CardDisplay({ pokemon, setPokemon, shuffleArray }) {
+export default function CardDisplay({
+  pokemon,
+  setPokemon,
+  shuffleArray,
+  currentScore,
+  setCurrentScore,
+}) {
   const [cards, setCards] = useState(initializeCards());
 
   function initializeCards() {
@@ -36,6 +42,14 @@ export default function CardDisplay({ pokemon, setPokemon, shuffleArray }) {
     setPokemon(shuffledPokemon);
   }
 
+  function incrementCurrentScore() {
+    setCurrentScore(currentScore + 1);
+  }
+
+  function resetCurrentScore() {
+    setCurrentScore(0);
+  }
+
   return (
     <>
       <div className="card-display">
@@ -48,6 +62,8 @@ export default function CardDisplay({ pokemon, setPokemon, shuffleArray }) {
               resetCards={resetCards}
               saveCard={saveCard}
               isClicked={findCard(monster).isClicked}
+              incrementCurrentScore={incrementCurrentScore}
+              resetCurrentScore={resetCurrentScore}
             />
           );
         })}

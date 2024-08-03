@@ -6,6 +6,8 @@ export default function Card({
   resetCards,
   saveCard,
   isClicked,
+  incrementCurrentScore,
+  resetCurrentScore,
 }) {
   return (
     <>
@@ -13,11 +15,9 @@ export default function Card({
         className="card"
         onClick={() => {
           if (isClicked) {
-            console.log('clicked the same card!');
-            // Reset isClicked on all Cards
             resetCards();
             // Update High score if score > high score
-            // Set score to 0
+            resetCurrentScore();
             // ~fetch new pokemon (changes ids!)
           } else {
             const updatedCard = {
@@ -25,8 +25,7 @@ export default function Card({
               isClicked: true,
             };
             saveCard(updatedCard);
-
-            // Increment score by 1
+            incrementCurrentScore();
           }
           shuffleCards();
         }}

@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import '../styles/scoreboard.css';
 
-export default function ScoreBoard() {
-  const [currentScore, setCurrentScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
-
+export default function ScoreBoard({ currentScore, bestScore }) {
   return (
     <>
       <div id="score-board">
