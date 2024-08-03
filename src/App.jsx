@@ -74,6 +74,8 @@ function App() {
             shuffleArray={shuffleArray}
             currentScore={currentScore}
             setCurrentScore={setCurrentScore}
+            bestScore={bestScore}
+            setBestScore={setBestScore}
           />
         )}
       </div>

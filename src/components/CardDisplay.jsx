@@ -7,6 +7,8 @@ export default function CardDisplay({
   shuffleArray,
   currentScore,
   setCurrentScore,
+  bestScore,
+  setBestScore,
 }) {
   const [cards, setCards] = useState(initializeCards());
 
@@ -50,6 +52,12 @@ export default function CardDisplay({
     setCurrentScore(0);
   }
 
+  function updateBestScore() {
+    if (currentScore > bestScore) {
+      setBestScore(currentScore);
+    }
+  }
+
   return (
     <>
       <div className="card-display">
@@ -64,6 +72,7 @@ export default function CardDisplay({
               isClicked={findCard(monster).isClicked}
               incrementCurrentScore={incrementCurrentScore}
               resetCurrentScore={resetCurrentScore}
+              updateBestScore={updateBestScore}
             />
           );
         })}

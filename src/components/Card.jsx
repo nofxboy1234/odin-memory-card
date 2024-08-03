@@ -8,6 +8,7 @@ export default function Card({
   isClicked,
   incrementCurrentScore,
   resetCurrentScore,
+  updateBestScore,
 }) {
   return (
     <>
@@ -16,7 +17,7 @@ export default function Card({
         onClick={() => {
           if (isClicked) {
             resetCards();
-            // Update High score if score > high score
+            updateBestScore();
             resetCurrentScore();
             // ~fetch new pokemon (changes ids!)
           } else {
