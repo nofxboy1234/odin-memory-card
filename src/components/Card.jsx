@@ -19,6 +19,7 @@ export default function Card({
             resetCards();
             updateBestScore();
             resetCurrentScore();
+            alert('game over!');
             // ~fetch new pokemon (changes ids!)
           } else {
             const updatedCard = {
