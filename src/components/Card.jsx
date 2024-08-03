@@ -19,7 +19,7 @@ export default function Card({
             resetCards();
             updateBestScore();
             resetCurrentScore();
-            alert('game over!');
+            alert(`You caught ${monster.name} twice! Game over!`);
             // ~fetch new pokemon (changes ids!)
           } else {
             const updatedCard = {

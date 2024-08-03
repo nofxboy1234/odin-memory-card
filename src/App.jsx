@@ -66,7 +66,11 @@ function App() {
   return (
     <>
       <div>
-        <ScoreBoard currentScore={currentScore} bestScore={bestScore} />
+        <ScoreBoard
+          currentScore={currentScore}
+          bestScore={bestScore}
+          maxScore={pokemon.length}
+        />
         {pokemon.length > 0 && (
           <CardDisplay
             pokemon={pokemon}
