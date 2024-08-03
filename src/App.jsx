@@ -34,9 +34,9 @@ function App() {
         'https://pokeapi.co/api/v2/pokemon?limit=12'
       );
       const json = await response.json();
-      const pokemonUrls = json.results.map((pokemon) => pokemon.url);
+      const monsterUrls = json.results.map((pokemon) => pokemon.url);
 
-      const monsterPromises = pokemonUrls.map((url) => fetch(url));
+      const monsterPromises = monsterUrls.map((url) => fetch(url));
       const monsterResponses = await Promise.all(monsterPromises);
       const monsterJsons = monsterResponses.map((monsterResponse) =>
         monsterResponse.json()
