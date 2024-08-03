@@ -52,7 +52,10 @@ export default function CardDisplay({
       resetCards();
       resetCurrentScore();
       resetBestScore();
-      alert('You caught all the pokemon!');
+
+      setTimeout(() => {
+        alert('You caught all the pokemon!');
+      }, 0);
     } else {
       setCurrentScore(nextCurrentScore);
     }
