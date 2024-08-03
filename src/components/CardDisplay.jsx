@@ -9,6 +9,7 @@ export default function CardDisplay({
   setCurrentScore,
   bestScore,
   setBestScore,
+  maxScore,
 }) {
   const [cards, setCards] = useState(initializeCards());
 
@@ -45,11 +46,24 @@ export default function CardDisplay({
   }
 
   function incrementCurrentScore() {
-    setCurrentScore(currentScore + 1);
+    const nextCurrentScore = currentScore + 1;
+
+    if (nextCurrentScore === maxScore) {
+      resetCards();
+      resetCurrentScore();
+      resetBestScore();
+      alert('You caught all the pokemon!');
+    } else {
+      setCurrentScore(nextCurrentScore);
+    }
   }
 
   function resetCurrentScore() {
     setCurrentScore(0);
+  }
+
+  function resetBestScore() {
+    setBestScore(0);
   }
 
   function updateBestScore() {

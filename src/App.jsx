@@ -87,6 +87,7 @@ function App() {
             setCurrentScore={setCurrentScore}
             bestScore={bestScore}
             setBestScore={setBestScore}
+            maxScore={pokemon.length}
           />
         )}
       </div>
