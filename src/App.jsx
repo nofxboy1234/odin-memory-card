@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import CardDisplay from './components/CardDisplay';
 import ScoreBoard from './components/ScoreBoard';
+import './App.css';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -71,6 +72,12 @@ function App() {
           bestScore={bestScore}
           maxScore={pokemon.length}
         />
+        <div id="instructions">
+          <h3>
+            How to play: Try catch all pokemon by clicking on them. It's game
+            over if you catch the same pokemon twice!
+          </h3>
+        </div>
         {pokemon.length > 0 && (
           <CardDisplay
             pokemon={pokemon}
