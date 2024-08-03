@@ -9,8 +9,6 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
 
   const shuffleArray = useCallback((array) => {
-    console.log('shuffle cards');
-
     const newArray = [...array];
     let currentIndex = newArray.length;
 
@@ -48,7 +46,6 @@ function App() {
       return monsters;
     }
 
-    console.log('fetching data');
     let ignore = false;
     fetchData().then((monsters) => {
       if (!ignore) {
@@ -61,8 +58,6 @@ function App() {
       ignore = true;
     };
   }, [shuffleArray]);
-
-  console.log('Render');
 
   return (
     <>
