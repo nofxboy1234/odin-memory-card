@@ -25,6 +25,8 @@ export default function Card({
               isClicked: true,
             };
             saveCard(updatedCard);
+
+            // Increment score by 1
           }
           shuffleCards();
         }}

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import CardDisplay from './components/CardDisplay';
+import ScoreBoard from './components/ScoreBoard';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -62,13 +63,16 @@ function App() {
 
   return (
     <>
-      {pokemon.length > 0 && (
-        <CardDisplay
-          pokemon={pokemon}
-          setPokemon={setPokemon}
-          shuffleArray={shuffleArray}
-        />
-      )}
+      <div>
+        <ScoreBoard />
+        {pokemon.length > 0 && (
+          <CardDisplay
+            pokemon={pokemon}
+            setPokemon={setPokemon}
+            shuffleArray={shuffleArray}
+          />
+        )}
+      </div>
     </>
   );
 }
