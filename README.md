@@ -6,7 +6,7 @@ A Pokemon memory card game built using React and the pokemon API (https://pokeap
 
 ## Demo
 
-[https://glacial-lowlands-89807-117906cec308.herokuapp.com/](https://odin-memory-card-oibv866qg-nofxboy1234s-projects.vercel.app/)
+https://odin-memory-card-oibv866qg-nofxboy1234s-projects.vercel.app/
 
 
 ## Features
